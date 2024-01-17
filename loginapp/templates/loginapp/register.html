@@ -1,3 +1,23 @@
-<html>
-    <h1>this is my register page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    <div class="container" mt-5>
+    <h1>Register here!</h1>
+
+    <form method="POST" autocomplete="off" >
+
+        {% csrf_token %}
+        {{ registerform.as_p }}
+
+        <input type="submit" value="Register"/>
+        
+    </form>
+</div>
+
+</body>
 </html>
