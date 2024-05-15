@@ -12,7 +12,6 @@ def home(request):
     return render(request, "loginapp/index.html")
 
 def register(request):
-
     form = CreateUserForm()
     if request.method == "POST":
         form = CreateUserForm(request.POST)
@@ -21,13 +20,11 @@ def register(request):
             form.save()
             return redirect("my-login")
         
-    context = {"registerform":form}
-
+    context = {"form":form}
     return render(request, "loginapp/register.html",context)
 
 
 def my_login(request):
-
     form = LoginForm()
     if request.method == "POST":
         form = LoginForm(request,data = request.POST)
@@ -41,14 +38,13 @@ def my_login(request):
                 return redirect("dashboard")
     context = {"loginform" : form}
 
-
     return render(request, "loginapp/my-login.html",context)
 
 
 
 def user_logout(request):
     auth.logout(request)
-    return redirect("")
+    return redirect("my-login")
 
 @login_required(login_url="my-login")
 def dashboard(request):

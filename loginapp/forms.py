@@ -9,9 +9,7 @@ from django.forms.widgets import TextInput,PasswordInput
 # Create/Register a User
 
 class CreateUserForm(UserCreationForm):
-
     class Meta:
-
         model = User
         fields = ["username", "email", "password1", "password2"]
 
